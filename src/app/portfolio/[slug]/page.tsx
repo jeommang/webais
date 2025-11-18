@@ -35,9 +35,7 @@ export default async function PortfolioDetail({
   const cover = (item as any).detailCoverImageUrl || item.coverImageUrl;
 
   const images: string[] = Array.isArray(item.images) ? item.images : [];
-  const videos: string[] = Array.isArray((item as any).videos)
-    ? ((item as any).videos as string[])
-    : [];
+  const videos: string[] = Array.isArray(item.videos) ? item.videos : [];
 
   return (
     <div className="max-w-6xl mx-auto px-6 md:px-12 py-12">

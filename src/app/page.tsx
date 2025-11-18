@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Hero from "./components/home/hero";
 import Services from "./components/home/Services";
 import PortfolioRow from "./components/portfolio/PortfolioRow";
@@ -41,13 +43,13 @@ export default async function HomePage() {
       >
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="flex items-end justify-between">
-            <h2 className="text-2xl md:text-3xl font-bold">포트폴리오</h2>
-            <a
+            <h2 className="text-2xl md:text-3xl font-bold">포트폴리오</h2>+{" "}
+            <Link
               href="/portfolio"
               className="text-sm text-gray-600 hover:text-gray-900 underline underline-offset-4"
             >
               전체 보기
-            </a>
+            </Link>
           </div>
 
           <PortfolioRow
