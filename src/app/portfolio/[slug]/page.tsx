@@ -1,5 +1,7 @@
+// src/app/portfolio/[slug]/page.tsx
 import Image from "next/image";
 import { getPortfolioBySlug } from "@/app/lib/repositories/portfolioRepo";
+import type { Portfolio } from "@/app/types/portfolio";
 
 function join(arr?: string[] | string, sep = ", ") {
   if (!arr) return "-";
@@ -17,6 +19,9 @@ function ytEmbed(url: string) {
   return id ? `https://www.youtube.com/embed/${id}` : url;
 }
 
+// Portfolio에 선택적 필드가 있을 수 있으므로 보조 타입 정의 (any 금지)
+type PortfolioWithDetail = Portfolio & { detailCoverImageUrl?: string };
+
 export default async function PortfolioDetail({
   params,
 }: {
@@ -32,7 +37,8 @@ export default async function PortfolioDetail({
   }
 
   // 상세 커버: detailCoverImageUrl가 있으면 우선 사용, 없으면 기존 coverImageUrl
-  const cover = (item as any).detailCoverImageUrl || item.coverImageUrl;
+  const p = item as PortfolioWithDetail;
+  const cover = p.detailCoverImageUrl ?? p.coverImageUrl;
 
   const images: string[] = Array.isArray(item.images) ? item.images : [];
   const videos: string[] = Array.isArray(item.videos) ? item.videos : [];
@@ -63,7 +69,10 @@ export default async function PortfolioDetail({
             <p className="text-sm text-gray-500">Project</p>
             {/* Project = goal (없으면 title → client 순) */}
             <h1 className="mt-1 text-2xl md:text-3xl font-extrabold leading-tight">
-              {item.goal || item.title || item.client || "-"}
+              {item.goal ||
+                item.title ||
+                (item as unknown as { client?: string }).client ||
+                "-"}
             </h1>
           </header>
 
