@@ -4,7 +4,7 @@ import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "WEBais | Marketing Agency",
+  title: "Webais | Marketing Agency",
   description: "SNS/인플루언서/바이럴/블로그/체험단/키워드 광고 대행",
 };
 
