@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 type NavItem =
@@ -20,6 +21,7 @@ export default function Header() {
 
   const handleSectionClick = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
+
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -30,10 +32,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
-      <div className="w-full px-3 md:px-6 lg:px-10 py-3 flex items-center">
+      <div className="w-full px-3 md:px-6 lg:px-6 py-3 flex items-center">
         {/* 좌측 로고 */}
-        <Link href="/" className="font-extrabold text-xl tracking-tight">
-          webais
+        <Link href="/" className="flex items-center">
+          <Image
+            src="https://gi.esmplus.com/jjumang/webais/logo/webais_logo.png"
+            alt="webais logo"
+            width={120}
+            height={24}
+            className="h-6 w-auto"
+          />
         </Link>
 
         {/* 우측 메뉴 */}
@@ -41,6 +49,7 @@ export default function Header() {
           {NAV.map((item) => {
             if (item.kind === "route") {
               const active = pathname === item.href;
+
               return (
                 <Link
                   key={item.title}
