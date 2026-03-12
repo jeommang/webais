@@ -1,4 +1,5 @@
 // src/app/portfolio/[slug]/page.tsx
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getPortfolioBySlug } from "@/app/lib/repositories/portfolioRepo";
 import type { Portfolio } from "@/app/types/portfolio";
@@ -22,12 +23,57 @@ function ytEmbed(url: string) {
 // Portfolio에 선택적 필드가 있을 수 있으므로 보조 타입 정의 (any 금지)
 type PortfolioWithDetail = Portfolio & { detailCoverImageUrl?: string };
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const item = await getPortfolioBySlug(slug);
+
+  if (!item) {
+    return {
+      title: "포트폴리오",
+      description: "위베이스 포트폴리오 페이지입니다.",
+    };
+  }
+
+  const title = `${item.title} 포트폴리오`;
+  const description =
+    item.goal ||
+    item.result ||
+    `${item.title}의 마케팅 프로젝트 사례를 소개합니다.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/portfolio/${item.slug}`,
+    },
+    openGraph: {
+      title: `${title} | 위베이스`,
+      description,
+      url: `https://webais.kr/portfolio/${item.slug}`,
+      type: "article",
+      images: item.coverImageUrl
+        ? [
+            {
+              url: item.coverImageUrl,
+              alt: item.title,
+            },
+          ]
+        : [],
+    },
+  };
+}
+
 export default async function PortfolioDetail({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const item = await getPortfolioBySlug(params.slug);
+  const { slug } = await params;
+  const item = await getPortfolioBySlug(slug);
   if (!item) {
     return (
       <div className="max-w-4xl mx-auto p-6">
