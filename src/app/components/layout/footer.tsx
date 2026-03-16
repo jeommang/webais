@@ -80,7 +80,7 @@ export default function Footer() {
               <span>▶️</span>
             </a>
             <a
-              href="mailto:commerce@ringcross.com"
+              href="mailto:mkt@ringcross.com"
               className="inline-flex items-center justify-center w-9 h-9 rounded-full border hover:bg-gray-50"
               aria-label="Email"
             >
@@ -129,7 +129,7 @@ export default function Footer() {
           <div>서울특별시 송파구 법원로 9길 26, H비즈니스파크 D동 110호</div>
           <div>대표: 강혜민 | 사업자등록번호: 283-87-01226</div>
           <div>Tel. 02-6952-9052</div>
-          <div>Email. commerce@ringcross.com</div>
+          <div>Email. mkt@ringcross.com</div>
           <div className="pt-2">
             <a
               href="https://www.google.com/maps?q=서울특별시 송파구 법원로 9길 26, H비즈니스파크 D동 110호"
