@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.webais.kr"),
   verification: {
     other: {
-      "naver-site-verification": "3e65050f02cd378769c0dbfcf26e43ea60e6ec0e",
+      "naver-site-verification": "3e85050f02cd378769c0dbfcf26e43ea60e6ec0e",
     },
   },
   title: {
