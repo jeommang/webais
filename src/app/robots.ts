@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://webais.kr/sitemap.xml",
-    host: "https://webais.kr",
+    sitemap: "https://www.webais.kr/sitemap.xml",
+    host: "https://www.webais.kr",
   };
 }

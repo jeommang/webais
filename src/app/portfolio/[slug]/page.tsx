@@ -53,7 +53,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | 위베이스`,
       description,
-      url: `https://webais.kr/portfolio/${item.slug}`,
+      url: `https://www.webais.kr/portfolio/${item.slug}`,
       type: "article",
       images: item.coverImageUrl
         ? [

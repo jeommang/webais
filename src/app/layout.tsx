@@ -4,7 +4,12 @@ import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webais.kr"),
+  metadataBase: new URL("https://www.webais.kr"),
+  verification: {
+    other: {
+      "naver-site-verification": "3e65050f02cd378769c0dbfcf26e43ea60e6ec0e",
+    },
+  },
   title: {
     default: "위베이스 | 마케팅 대행 · SNS 광고 · 퍼포먼스 마케팅",
     template: "%s | 위베이스",
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
     title: "위베이스 | 마케팅 대행 · SNS 광고 · 퍼포먼스 마케팅",
     description:
       "위베이스(Webais)는 SNS 광고, 퍼포먼스 마케팅, 바이럴, 블로그, 체험단, 키워드 광고를 운영하는 마케팅 전문 에이전시입니다.",
-    url: "https://webais.kr",
+    url: "https://www.webais.kr",
     siteName: "위베이스",
     locale: "ko_KR",
     type: "website",

@@ -37,7 +37,7 @@ export default function Footer() {
               상담 문의하기
             </Link>
             <a
-              href="tel:021234567" // 실제 번호로 교체
+              href="tel:0269529052" // 실제 번호로 교체
               className="rounded-xl border px-5 py-3 text-sm hover:bg-gray-100"
             >
               02-6952-9052

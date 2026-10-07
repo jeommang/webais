@@ -2,9 +2,12 @@
 import Image from "next/image";
 
 export const metadata = {
-  title: "About us — webais",
+  title: "회사소개 · 마케팅 전문 에이전시",
   description:
-    "전략·크리에이티브·실행력을 한 번에. webais는 퍼포먼스와 브랜딩을 잇는 실용적인 마케팅 파트너입니다.",
+    "위베이스(Webais)는 SNS 운영, 퍼포먼스 광고, 인플루언서·바이럴 마케팅을 제공하는 마케팅 전문 에이전시입니다. 주요 업무와 프로젝트 이력을 소개합니다.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 // 👉 여기에 배너 이미지 URL만 바꿔서 쓰면 돼요.
